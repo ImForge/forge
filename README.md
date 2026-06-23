@@ -30,31 +30,5 @@ Password- 12345
 
 ---
 
----
-
-## Key Design Decisions
-
-**No thumbnails** — project cards use deterministic cinematic gradients based on the project title. Keeps the aesthetic consistent and avoids broken image links.
-
-**Server + Client split** — pages that only display data are Server Components (faster, SEO friendly). Pages with filters, forms, or interactivity are Client Components. Event handlers are never passed across the boundary.
-
-**`proxy.ts` not `middleware.ts`** — Next.js 15 naming convention for the middleware file.
-
-**Supabase FK hints** — all joins use explicit FK hints (e.g. `profiles!projects_submitted_by_fkey`) to avoid ambiguous relationship errors.
-
-**Programs and semesters** — BCA has 6 semesters, B.Tech has 8. The semester dropdown updates based on the selected program. Stored in `profiles.program` and `projects.program`.
-
----
-
-## Deployment
-
-Deployed on Vercel. After pushing to GitHub, Vercel auto-deploys on every push to `main`.
-
-Environment variables must be set in Vercel → Project Settings → Environment Variables.
-
-After deployment, update Supabase → Authentication → URL Configuration with your Vercel URL.
-
----
-
 
 > *"Every project submitted is a letter to the next generation."*
